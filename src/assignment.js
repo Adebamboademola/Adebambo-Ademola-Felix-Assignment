@@ -1,23 +1,27 @@
 // ========================
 // DO NOT EDIT THIS BLOCK
 const assignment = {};
-// ========================
 
 /**
- * Challenge - 1
- *
- * Calculate and return the sum of the numbers between 1 and a destination.
- * (1 to destination) where destination is a number greater than 1 and destination is included when calculating the sum.
- *
- * If you did Challenge - 1, remove the comment in the line just after this function
- *
  * @param {Number} destination is the stopping number
  * @returns number the sum of the numbers from 1 to destination
  */
 function sumOfNumbersTo(destination) {
-    let sum = 0;
-    return sum
+  let sum = 0;
+
+  for (let i = 1; i <= destination; i++) {
+    sum += i;
+  }
+
+  return sum;
 }
+
+assignment.sumOfNumbersTo = sumOfNumbersTo;
+
+// Usage example:
+const destination = 10;
+const sum = assignment.sumOfNumbersTo(destination);
+console.log(`Sum of numbers from 1 to ${destination} is: ${sum}`);
 
 
 // assignment.sumOfNumbersTo = sumOfNumbersTo;
@@ -33,21 +37,35 @@ function sumOfNumbersTo(destination) {
  * @returns the object containing count, sum, arrayOfEvenNumbers from 1 to destination
  */
 function countEvenNumbersWithin(destination) {
-    // Write your code here
-    // get the number from 1 to destination
     let sum = 0;
     let count = 0;
     let arrayOfEvenNumbers = [];
-
+  
+    for (let i = 1; i <= destination; i++) {
+      if (i % 2 === 0) {
+        arrayOfEvenNumbers.push(i);
+        sum += i;
+        count++;
+      }
+    }
+  
     return {
-        // property value shorthand
-        // when the property name and the value name are the same
-        // you can just write the property name in your object
-        count,
-        sum,
-        arrayOfEvenNumbers
+      count,
+      sum,
+      arrayOfEvenNumbers
     };
-}
+  }
+  
+  assignment.countEvenNumbersWithin = countEvenNumbersWithin;
+  
+  const destination1 = 10;
+  const result1 = assignment.sumOfNumbersTo(destination1);
+  console.log(`Challenge 1: Sum of numbers from 1 to ${destination1} is ${result1}`);
+  
+  const destination2 = 20;
+  const result2 = assignment.countEvenNumbersWithin(destination2);
+  console.log(`Challenge 2: Even numbers from 1 to ${destination2} - Count: ${result2.count}, Sum: ${result2.sum}, Array: ${result2.arrayOfEvenNumbers}`);
+
 
 // assignment.countEvenNumbersWithin = countEvenNumbersWithin;
 
